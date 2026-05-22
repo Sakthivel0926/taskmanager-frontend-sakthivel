@@ -44,11 +44,11 @@ export default function TaskForm({ fetchTasks }) {
   };
 
   return (
+    <ProtectedRoute>
     <form
       onSubmit={handleSubmit}
       className="bg-white p-6 rounded-2xl shadow-md mb-8"
     >
-      <h2 className="text-2xl font-bold mb-5 text-black">Add New Task</h2>
 
       
       <input
@@ -71,7 +71,7 @@ export default function TaskForm({ fetchTasks }) {
       />
 
       <select
-        className="w-full border p-3 rounded-lg mb-4 text-black"
+        className="border p-3 bg-white text-black rounded-lg mb-4"
         value={status}
         onChange={(e) => setStatus(e.target.value)}
       >
@@ -95,5 +95,6 @@ export default function TaskForm({ fetchTasks }) {
         {loading ? "Adding..." : "Add Task"}
       </button>
     </form>
+    </ProtectedRoute>
   );
 }

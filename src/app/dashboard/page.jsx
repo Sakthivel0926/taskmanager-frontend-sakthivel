@@ -8,16 +8,17 @@ import ProtectedRoute from "@/components/ProtectedRoute";
 import Sidebar from "@/components/Sidebar";
 import Navbar from "@/components/Navbar";
 import TaskCard from "@/components/TaskCard";
+import TaskForm from "@/components/TaskForm";
 
 export default function DashboardPage() {
-
   const [tasks, setTasks] = useState([]);
-
   const [loading, setLoading] = useState(true);
-
+  const [editingTask, setEditingTask] = useState(null);
   const fetchTasks = async () => {
 
     try {
+
+      setLoading(true);
 
       const response = await API.get("tasks/");
 
@@ -25,17 +26,41 @@ export default function DashboardPage() {
 
     } catch (error) {
 
-      console.log(error);
+      console.log(
+        "Error fetching tasks:",
+        error?.response?.data || error.message
+      );
 
     } finally {
 
       setLoading(false);
     }
   };
+  
 
   useEffect(() => {
-    fetchTasks();
+
+    const loadTasks = async () => {
+      await fetchTasks();
+    };
+
+    loadTasks();
+
   }, []);
+
+  const handleDelete = async (id) => {
+
+    try {
+
+      await API.delete(`tasks/delete/${id}/`);
+
+      fetchTasks();
+
+    } catch (error) {
+
+      console.log(error);
+    }
+  };
 
   return (
 
@@ -49,15 +74,12 @@ export default function DashboardPage() {
 
           <Navbar />
 
-          <div className="p-10 overflow-y-auto">
+          <div className="flex-1 p-10 overflow-y-auto">
+
 
             <p className="text-lg text-gray-600 mb-10">
               Manage your tasks easily.
             </p>
-
-            <h2 className="text-3xl font-semibold mb-6 text-black">
-              All Tasks
-            </h2>
 
             {loading ? (
 
@@ -72,11 +94,14 @@ export default function DashboardPage() {
                   <TaskCard
                     key={task.id}
                     task={task}
+                    onDelete={handleDelete}
+                    onEdit={setEditingTask}
                   />
 
                 ))}
 
               </div>
+
             )}
 
           </div>

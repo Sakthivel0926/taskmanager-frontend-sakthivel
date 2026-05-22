@@ -1,9 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
 import API from "@/services/api";
-
 import ProtectedRoute from "@/components/ProtectedRoute";
 import Sidebar from "@/components/Sidebar";
 import Navbar from "@/components/Navbar";
@@ -12,10 +10,7 @@ import TaskCard from "@/components/TaskCard";
 export default function TasksPage() {
 
   const [tasks, setTasks] = useState([]);
-
   const [loading, setLoading] = useState(true);
-
-  // FETCH TASKS
   const fetchTasks = async () => {
 
     try {
@@ -48,7 +43,6 @@ useEffect(() => {
 
 }, []);
 
-  // DELETE TASK
   const handleDelete = async (id) => {
 
     try {

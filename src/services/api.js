@@ -4,7 +4,6 @@ const API = axios.create({
     baseURL: "http://127.0.0.1:8000/api/",
 });
 
-// Attach access token
 API.interceptors.request.use((config) => {
     const token = localStorage.getItem("access");
 
@@ -15,7 +14,6 @@ API.interceptors.request.use((config) => {
     return config;
 });
 
-// Auto refresh on 401
 API.interceptors.response.use(
     (response) => response,
     async (error) => {

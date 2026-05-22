@@ -9,11 +9,8 @@ import { AuthContext } from "@/context/AuthContext";
 export default function LoginPage() {
 
     const { loginUser } = useContext(AuthContext);
-
     const [username, setUsername] = useState("");
-
     const [password, setPassword] = useState("");
-
 
     const handleSubmit = async (e) => {
 
@@ -36,7 +33,7 @@ export default function LoginPage() {
             >
 
                 <h1 className="text-3xl font-bold text-center mb-6 text-black">
-                    Welcome
+                    Login
                 </h1>
 
                 <input
