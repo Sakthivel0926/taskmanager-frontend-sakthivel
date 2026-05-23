@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import API from "@/services/api";
+import ProtectedRoute from "@/components/ProtectedRoute";
 
 export default function TaskForm({ fetchTasks }) {
   const [title, setTitle] = useState("");

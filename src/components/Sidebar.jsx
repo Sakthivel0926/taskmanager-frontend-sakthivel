@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import ProtectedRoute from "@/components/ProtectedRoute";
 
 export default function Sidebar() {
   return (

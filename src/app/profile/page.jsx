@@ -1,10 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
 import Sidebar from "@/components/Sidebar";
-
 import Navbar from "@/components/Navbar";
+import ProtectedRoute from "@/components/ProtectedRoute";
 
 export default function ProfilePage() {
 

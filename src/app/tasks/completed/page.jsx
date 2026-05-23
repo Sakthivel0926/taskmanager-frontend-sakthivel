@@ -5,6 +5,7 @@ import API from "@/services/api";
 import Sidebar from "@/components/Sidebar";
 import Navbar from "@/components/Navbar";
 import TaskCard from "@/components/TaskCard";
+import ProtectedRoute from "@/components/ProtectedRoute";
 
 export default function CompletedTasksPage() {
 

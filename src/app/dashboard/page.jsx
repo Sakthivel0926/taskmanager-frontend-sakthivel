@@ -8,7 +8,6 @@ import ProtectedRoute from "@/components/ProtectedRoute";
 import Sidebar from "@/components/Sidebar";
 import Navbar from "@/components/Navbar";
 import TaskCard from "@/components/TaskCard";
-import TaskForm from "@/components/TaskForm";
 
 export default function DashboardPage() {
   const [tasks, setTasks] = useState([]);

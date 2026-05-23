@@ -3,6 +3,7 @@
 import { useContext, useEffect, useState } from "react";
 import Link from "next/link";
 import { AuthContext } from "@/context/AuthContext";
+import ProtectedRoute from "@/components/ProtectedRoute";
 
 export default function Navbar() {
 
